@@ -26,6 +26,7 @@ import Serverless from "../public/serverless.png";
 import GameHostingPanel1 from "../public/game-hosting-panel/1.png";
 import Link from "next/link";
 import ProjectSummary from "../components/project-summary";
+import Head from "next/head";
 
 interface TechnologyIcon {
     name: string;
@@ -97,6 +98,9 @@ const others: TechnologyIcon[] = [
 
 const Home: NextPage = () => {
     return <>
+        <Head>
+            <title>Hugo Jeller Ferreira</title>
+        </Head>
         <section className="dark">
             <Section>
                 <nav className="flex justify-between">
