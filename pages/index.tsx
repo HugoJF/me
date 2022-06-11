@@ -110,107 +110,99 @@ const Home: NextPage = () => {
         <Head>
             <title>Hugo Jeller Ferreira</title>
         </Head>
-        <section className="dark">
-            <Section>
-                <nav className="flex justify-between">
-                    <SectionHeading title="Hugo Jeller"/>
-                    <ul className="flex gap-8">
-                        {/*<li className="font-medium uppercase">Home</li>*/}
-                        {/*<li className="font-medium uppercase">Projetos</li>*/}
-                        {/*<li className="font-medium uppercase">Contato</li>*/}
-                        {/*<li className="font-medium uppercase">GitHub</li>*/}
-                    </ul>
-                </nav>
-            </Section>
-        </section>
-        <section className="dark">
-            <Section className="flex flex-col md:flex-row items-center">
-                <div className="flex justify-center w-1/2">
-                    <Image
-                        alt="Hugo Jeller"
-                        width={300}
-                        height={300}
-                        src="https://avatars.githubusercontent.com/u/1527438?v=4"
-                        className="flex-shrink-0 w-64 h-64 bg-white rounded-full shadow-lg"
-                    />
-                </div>
-                <div className="w-1/2">
-                    <h1 className="text-3xl font-medium">Olá 👋</h1>
-                    <p className="mt-4 text-lg text-gray-200">Meu nome é Hugo, estudante de Engenharia da Computação
-                        pela UFMS. Estou desenvolvendo diversos projetos pessoais envolvendo jogos eletrônicos,
-                        tecnologias web e automação de servidores Linux.</p>
-                    <p className="mt-4 text-lg text-gray-200">Meu objetivo é criar uma fundação sólida de
-                        tecnologias frontend e backend para transformar ideias em soluções.</p>
-                </div>
-            </Section>
-        </section>
-        <section className="dark">
-            <Section>
-                <SectionHeading title="Tecnologias">
-                    Principais tecnologias que utilizo nos meus projetos
-                </SectionHeading>
-                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {skills.map(skill => (
-                        <li key={skill.name}>
-                            <Link href={`/skills/${skill.name}`} passHref>
-                                <a className="duration-150 flex flex-col gap-1 h-full p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
-                                    <ul className="flex gap-2">
-                                        {skill.icons.map(icon => <Icon
-                                            key={icon.name}
-                                            src={icon.src}
-                                            alt={icon.name}
-                                        />)}
-                                    </ul>
-                                    <h2 className="text-lg font-medium">{skill.name}</h2>
-                                    <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
-                                </a>
-                            </Link>
-                        </li>
-                    ))}
+        <Section>
+            <nav className="flex justify-between">
+                <SectionHeading title="Hugo Jeller"/>
+                <ul className="flex gap-8">
+                    {/*<li className="font-medium uppercase">Home</li>*/}
+                    {/*<li className="font-medium uppercase">Projetos</li>*/}
+                    {/*<li className="font-medium uppercase">Contato</li>*/}
+                    {/*<li className="font-medium uppercase">GitHub</li>*/}
                 </ul>
-
-                <SectionHeading title="Eu também uso">
-                    Outras ferramentas e tecnologias que considero indispensáveis
-                </SectionHeading>
-                <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2 mt-8">
-                    {others.map(other => <li key={other.name}>
-                        <Link href={other.name} passHref>
-                            <a className="duration-150 flex flex-col items-center gap-2 p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
-                                <Icon
-                                    key={other.name}
-                                    src={other.src}
-                                    alt={other.name}
-                                />
-                                <h2 className="text-center text-lg font-medium">{other.name}</h2>
+            </nav>
+        </Section>
+        <Section className="flex flex-col md:flex-row items-center">
+            <div className="flex justify-center w-1/2">
+                <Image
+                    alt="Hugo Jeller"
+                    width={300}
+                    height={300}
+                    src="https://avatars.githubusercontent.com/u/1527438?v=4"
+                    className="flex-shrink-0 w-64 h-64 bg-white rounded-full shadow-lg"
+                />
+            </div>
+            <div className="w-1/2">
+                <h1 className="text-3xl font-medium">Olá 👋</h1>
+                <p className="mt-4 text-lg text-gray-700 dark:text-gray-200">Meu nome é Hugo, estudante de Engenharia da Computação
+                    pela UFMS. Estou desenvolvendo diversos projetos pessoais envolvendo jogos eletrônicos,
+                    tecnologias web e automação de servidores Linux.</p>
+                <p className="mt-4 text-lg text-gray-700 dark:text-gray-200">Meu objetivo é criar uma fundação sólida de
+                    tecnologias frontend e backend para transformar ideias em soluções.</p>
+            </div>
+        </Section>
+        <Section>
+            <SectionHeading title="Tecnologias">
+                Principais tecnologias que utilizo nos meus projetos
+            </SectionHeading>
+            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                {skills.map(skill => (
+                    <li key={skill.name}>
+                        <Link href={`/skills/${skill.name}`} passHref>
+                            <a className="duration-150 flex flex-col gap-1 h-full p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
+                                <ul className="flex gap-2">
+                                    {skill.icons.map(icon => <Icon
+                                        key={icon.name}
+                                        src={icon.src}
+                                        alt={icon.name}
+                                    />)}
+                                </ul>
+                                <h2 className="text-lg font-medium">{skill.name}</h2>
+                                <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
                             </a>
                         </Link>
-                    </li>)}
-                </ul>
-            </Section>
-        </section>
-        <section className="dark">
-            <Section className="flex-col">
-                <SectionHeading title="Experiência profissional"/>
-                <ul className="mt-8">
-                    <TimelineItem
-                        from="2021"
-                        to="Hoje"
-                        title="Tokenlab - Desenvolvedor web fullstack"
-                    >
-                        Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
-                        NestJS e Serverless Framework e também foi responsável pela infraestrutura cloud de projetos
-                        internos.
-                    </TimelineItem>
-                    <TimelineItem
-                        from="2017"
-                        to="2021"
-                        title="Desenvolvedor web fullstack"
-                    >
-                        Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
-                    </TimelineItem>
-                </ul>
-            </Section>
-        </section>
+                    </li>
+                ))}
+            </ul>
+
+            <SectionHeading title="Eu também uso">
+                Outras ferramentas e tecnologias que considero indispensáveis
+            </SectionHeading>
+            <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2 mt-8">
+                {others.map(other => <li key={other.name}>
+                    <Link href={other.name} passHref>
+                        <a className="duration-150 flex flex-col items-center gap-2 p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
+                            <Icon
+                                key={other.name}
+                                src={other.src}
+                                alt={other.name}
+                            />
+                            <h2 className="text-center text-lg font-medium">{other.name}</h2>
+                        </a>
+                    </Link>
+                </li>)}
+            </ul>
+        </Section>
+        <Section className="flex-col">
+            <SectionHeading title="Experiência profissional"/>
+            <ul className="mt-8">
+                <TimelineItem
+                    from="2021"
+                    to="Hoje"
+                    title="Tokenlab - Desenvolvedor web fullstack"
+                >
+                    Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
+                    NestJS e Serverless Framework e também foi responsável pela infraestrutura cloud de projetos
+                    internos.
+                </TimelineItem>
+                <TimelineItem
+                    from="2017"
+                    to="2021"
+                    title="Desenvolvedor web fullstack"
+                >
+                    Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
+                </TimelineItem>
+            </ul>
+        </Section>
         <Section>
             <SectionHeading title="Projetos"/>
 
