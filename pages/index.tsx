@@ -110,7 +110,7 @@ const Home: NextPage = () => {
         <Head>
             <title>Hugo Jeller Ferreira</title>
         </Head>
-        <Section>
+        <Section dark>
             <nav className="flex justify-between">
                 <SectionHeading title="Hugo Jeller"/>
                 <ul className="flex gap-8">
@@ -121,7 +121,7 @@ const Home: NextPage = () => {
                 </ul>
             </nav>
         </Section>
-        <Section className="flex flex-col md:flex-row items-center">
+        <Section dark className="flex flex-col md:flex-row items-center">
             <div className="flex justify-center w-1/2">
                 <Image
                     alt="Hugo Jeller"
@@ -182,7 +182,7 @@ const Home: NextPage = () => {
                 </li>)}
             </ul>
         </Section>
-        <Section className="flex-col">
+        <Section dark className="flex-col">
             <SectionHeading title="Experiência profissional"/>
             <ul className="mt-8">
                 <TimelineItem

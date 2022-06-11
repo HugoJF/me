@@ -2,17 +2,18 @@ import React, {useState} from "react";
 import clsx from "clsx";
 
 interface Props {
+    dark?: boolean;
     sectionClassName?: string;
     className?: string;
     children: React.ReactNode;
 }
 
-const Section: React.FC<Props> = ({sectionClassName, className, children}) => {
-    const [dark, setDark] = useState(false);
+const Section: React.FC<Props> = ({dark = false, sectionClassName, className, children}) => {
+    // const [dark, setDark] = useState(false);
 
     return <section
-        onMouseEnter={() => setDark(true)}
-        onMouseLeave={() => setDark(false)}
+        // onMouseEnter={() => setDark(true)}
+        // onMouseLeave={() => setDark(false)}
         className={clsx({dark})}
     >
         <div

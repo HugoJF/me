@@ -36,8 +36,6 @@ const Icon: React.FC<Props> = ({size = 40, src, alt}) => {
 
     const scale = size / src.height;
 
-    console.log(alt, src.width * scale, src.height * scale);
-
     return <Image
         src={src}
         alt={alt}
