@@ -5,32 +5,41 @@ import SectionHeading from "../components/section-heading";
 import Icon from "../components/icon";
 import Image, {StaticImageData} from "next/image";
 import Insomnia from "../public/insomnia.png";
-import GitHubActions from "../public/github-actions.png";
-import Docker from "../public/docker.png";
+import GitHubActions from "../public/github-actions.svg";
+import Docker from "../public/docker.svg";
 import React from "../public/react.svg";
-import NextJS from "../public/nextjs.png";
+import NextJS from "../public/nextjs-light.svg";
+import NextJSDark from "../public/nextjs-dark.svg";
 import Laravel from "../public/laravel.svg";
 import PHP from "../public/php.svg";
 import Nestjs from "../public/nestjs.svg";
 import Typescript from "../public/typescript.svg";
 import TailwindCSS from "../public/tailwindcss.svg";
 import Angular from "../public/angular.svg";
-import AWS from "../public/aws.svg";
+import AWS from "../public/aws-light.svg";
+import AWSDark from "../public/aws-dark.svg";
 import Bootstrap from "../public/bootstrap.svg";
-import Git from "../public/git.png";
-import MySQL from "../public/mysql.png";
-import MariaDB from "../public/mariadb.png";
-import DynamoDB from "../public/dynamodb.png";
-import Jest from "../public/jest.png";
-import Serverless from "../public/serverless.png";
+import Git from "../public/git.svg";
+import MySQL from "../public/mysql.svg";
+import MariaDB from "../public/mariadb.svg";
+import DynamoDB from "../public/dynamodb.svg";
+import Jest from "../public/jest.svg";
+import Serverless from "../public/serverless.svg";
 import GameHostingPanel1 from "../public/game-hosting-panel/1.png";
 import Link from "next/link";
 import ProjectSummary from "../components/project-summary";
 import Head from "next/head";
 
+interface AdaptiveImage {
+    light: StaticImageData;
+    dark: StaticImageData;
+}
+
+type SrcType = AdaptiveImage | StaticImageData;
+
 interface TechnologyIcon {
     name: string;
-    src: StaticImageData;
+    src: SrcType;
 }
 
 interface Skill {
@@ -45,7 +54,7 @@ const skills: Skill[] = [{
     icons: [{
         name: 'React', src: React
     }, {
-        name: 'Next.js', src: NextJS
+        name: 'Next.js', src: {light: NextJS, dark: NextJSDark},
     }],
 }, {
     name: 'Laravel & PHP',
@@ -79,7 +88,7 @@ const skills: Skill[] = [{
     name: 'Amazon Web Services',
     description: 'AWS é uma plataforma de serviços de cloud computing, que oferece acesso a serviços de cloud computing, como EC2, S3, EBS, RDS, IAM, Lambda.',
     icons: [{
-        name: 'AWS', src: AWS
+        name: 'AWS', src: {light: AWS, dark: AWSDark}
     }],
 }];
 
@@ -135,48 +144,50 @@ const Home: NextPage = () => {
                 </div>
             </Section>
         </section>
-        <Section>
-            <SectionHeading title="Tecnologias">
-                Principais tecnologias que utilizo nos meus projetos
-            </SectionHeading>
-            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                {skills.map(skill => (
-                    <li key={skill.name}>
-                        <Link href={`/skills/${skill.name}`} passHref>
-                            <a className="duration-150 flex flex-col gap-1 h-full p-4 hover:bg-gray-200 rounded-lg">
-                                <ul className="flex gap-2">
-                                    {skill.icons.map(icon => <Icon
-                                        key={icon.name}
-                                        src={icon.src}
-                                        alt={icon.name}
-                                    />)}
-                                </ul>
-                                <h2 className="text-lg font-medium">{skill.name}</h2>
-                                <p className="text-gray-700">{skill.description}</p>
+        <section className="dark">
+            <Section>
+                <SectionHeading title="Tecnologias">
+                    Principais tecnologias que utilizo nos meus projetos
+                </SectionHeading>
+                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    {skills.map(skill => (
+                        <li key={skill.name}>
+                            <Link href={`/skills/${skill.name}`} passHref>
+                                <a className="duration-150 flex flex-col gap-1 h-full p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
+                                    <ul className="flex gap-2">
+                                        {skill.icons.map(icon => <Icon
+                                            key={icon.name}
+                                            src={icon.src}
+                                            alt={icon.name}
+                                        />)}
+                                    </ul>
+                                    <h2 className="text-lg font-medium">{skill.name}</h2>
+                                    <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
+                                </a>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+
+                <SectionHeading title="Eu também uso">
+                    Outras ferramentas e tecnologias que considero indispensáveis
+                </SectionHeading>
+                <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2 mt-8">
+                    {others.map(other => <li key={other.name}>
+                        <Link href={other.name} passHref>
+                            <a className="duration-150 flex flex-col items-center gap-2 p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
+                                <Icon
+                                    key={other.name}
+                                    src={other.src}
+                                    alt={other.name}
+                                />
+                                <h2 className="text-center text-lg font-medium">{other.name}</h2>
                             </a>
                         </Link>
-                    </li>
-                ))}
-            </ul>
-
-            <SectionHeading title="Eu também uso">
-                Outras ferramentas e tecnologias que considero indispensáveis
-            </SectionHeading>
-            <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2 mt-8">
-                {others.map(other => <li key={other.name}>
-                    <Link href={other.name} passHref>
-                        <a className="duration-150 flex flex-col items-center gap-2 p-4 hover:bg-gray-200 rounded-lg">
-                            <Icon
-                                key={other.name}
-                                src={other.src}
-                                alt={other.name}
-                            />
-                            <h2 className="text-center text-lg font-medium">{other.name}</h2>
-                        </a>
-                    </Link>
-                </li>)}
-            </ul>
-        </Section>
+                    </li>)}
+                </ul>
+            </Section>
+        </section>
         <section className="dark">
             <Section className="flex-col">
                 <SectionHeading title="Experiência profissional"/>
