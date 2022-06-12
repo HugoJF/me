@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter',],
+        display: ['"Baloo 2"',],
+      },
       colors: {
         gray: colors.zinc,
       }

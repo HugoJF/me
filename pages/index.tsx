@@ -27,7 +27,6 @@ import Jest from "../public/jest.svg";
 import Serverless from "../public/serverless.svg";
 import GameHostingPanel1 from "../public/game-hosting-panel/1.png";
 import Me from "../public/me.jpg";
-import Link from "next/link";
 import ProjectSummary from "../components/project-summary";
 import Head from "next/head";
 
@@ -50,6 +49,14 @@ interface Skill {
 }
 
 const skills: Skill[] = [{
+    name: 'Laravel & PHP',
+    description: 'Laravel é um framework PHP gratuito e de código aberto, utilizado no desenvolvimento de sistemas para web.',
+    icons: [{
+        name: 'Laravel', src: Laravel
+    }, {
+        name: 'PHP', src: PHP
+    }],
+}, {
     name: 'React & Next.js',
     description: 'React é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
     icons: [{
@@ -58,12 +65,10 @@ const skills: Skill[] = [{
         name: 'Next.js', src: {light: NextJS, dark: NextJSDark},
     }],
 }, {
-    name: 'Laravel & PHP',
-    description: 'PHP é uma linguagem de programação de uso geral, livre, de código aberto, de uso livre, de código fonte aberto, de código de qualidade e de código de qualidade.',
+    name: 'TailwindCSS',
+    description: 'TailwindCSS é uma biblioteca de CSS que permite a você criar interfaces de usuário de forma declarativa, flexível e escalável.',
     icons: [{
-        name: 'Laravel', src: Laravel
-    }, {
-        name: 'PHP', src: PHP
+        name: 'TailwindCSS', src: TailwindCSS
     }],
 }, {
     name: 'Nest.js & Typescript',
@@ -74,12 +79,6 @@ const skills: Skill[] = [{
         name: 'Typescript', src: Typescript
     }],
 }, {
-    name: 'TailwindCSS',
-    description: 'TailwindCSS é uma biblioteca de CSS que permite a você criar interfaces de usuário de forma declarativa, flexível e escalável.',
-    icons: [{
-        name: 'TailwindCSS', src: TailwindCSS
-    }],
-}, {
     name: 'Angular',
     description: 'Angular é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
     icons: [{
@@ -87,7 +86,7 @@ const skills: Skill[] = [{
     }],
 }, {
     name: 'Amazon Web Services',
-    description: 'AWS é uma plataforma de serviços de cloud computing, que oferece acesso a serviços de cloud computing, como EC2, S3, EBS, RDS, IAM, Lambda.',
+    description: 'AWS é uma plataforma de serviços de cloud computing, que oferece acesso a serviços de cloud computing.',
     icons: [{
         name: 'AWS', src: {light: AWS, dark: AWSDark}
     }],
@@ -113,7 +112,7 @@ const Home: NextPage = () => {
         </Head>
         <Section dark>
             <nav className="flex justify-between">
-                <SectionHeading title="Hugo Jeller"/>
+                <SectionHeading title="Hugo Jeller Ferreira"/>
                 <ul className="flex gap-8">
                     {/*<li className="font-medium uppercase">Home</li>*/}
                     {/*<li className="font-medium uppercase">Projetos</li>*/}
@@ -123,7 +122,7 @@ const Home: NextPage = () => {
             </nav>
         </Section>
         <Section dark className="flex flex-col md:flex-row items-center">
-            <div className="flex justify-center w-1/2 rounded-full overflow-hidden">
+            <div className="flex justify-center md:w-1/2 rounded-full overflow-hidden">
                 <Image
                     alt="Hugo Jeller"
                     width={300}
@@ -132,9 +131,10 @@ const Home: NextPage = () => {
                     className="flex-shrink-0 w-64 h-64 bg-white rounded-full shadow-lg"
                 />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
                 <h1 className="text-3xl font-medium">Olá 👋</h1>
-                <p className="mt-4 text-lg text-gray-700 dark:text-gray-200">Meu nome é Hugo, estudante de Engenharia da Computação
+                <p className="mt-4 text-lg text-gray-700 dark:text-gray-200">Meu nome é Hugo, estudante de Engenharia da
+                    Computação
                     pela UFMS. Estou desenvolvendo diversos projetos pessoais envolvendo jogos eletrônicos,
                     tecnologias web e automação de servidores Linux.</p>
                 <p className="mt-4 text-lg text-gray-700 dark:text-gray-200">Meu objetivo é criar uma fundação sólida de
@@ -148,38 +148,37 @@ const Home: NextPage = () => {
             <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {skills.map(skill => (
                     <li key={skill.name}>
-                        <Link href={`/skills/${skill.name}`} passHref>
-                            <a className="duration-150 flex flex-col gap-1 h-full p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
-                                <ul className="flex gap-2">
-                                    {skill.icons.map(icon => <Icon
-                                        key={icon.name}
-                                        src={icon.src}
-                                        alt={icon.name}
-                                    />)}
-                                </ul>
-                                <h2 className="text-lg font-medium">{skill.name}</h2>
-                                <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
-                            </a>
-                        </Link>
+                        <a className="duration-150 flex flex-col gap-1 h-full p-4 rounded-lg">
+                            <ul className="flex gap-2">
+                                {skill.icons.map(icon => <Icon
+                                    key={icon.name}
+                                    src={icon.src}
+                                    alt={icon.name}
+                                />)}
+                            </ul>
+                            <h2 className="text-lg font-medium">{skill.name}</h2>
+                            <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
+                        </a>
                     </li>
                 ))}
             </ul>
 
-            <SectionHeading title="Eu também uso">
+            <SectionHeading title="Eu também uso" className="mt-8">
                 Outras ferramentas e tecnologias que considero indispensáveis
             </SectionHeading>
             <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2 mt-8">
-                {others.map(other => <li key={other.name}>
-                    <Link href={other.name} passHref>
-                        <a className="duration-150 flex flex-col items-center gap-2 p-4 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg">
-                            <Icon
-                                key={other.name}
-                                src={other.src}
-                                alt={other.name}
-                            />
-                            <h2 className="text-center text-lg font-medium">{other.name}</h2>
-                        </a>
-                    </Link>
+                {others.map(other => <li
+                    key={other.name}
+                    className="duration-150 rounded-lg"
+                >
+                    <a className="flex flex-col items-center gap-2 p-4">
+                        <Icon
+                            key={other.name}
+                            src={other.src}
+                            alt={other.name}
+                        />
+                        <h2 className="text-center text-lg font-medium">{other.name}</h2>
+                    </a>
                 </li>)}
             </ul>
         </Section>
@@ -189,7 +188,7 @@ const Home: NextPage = () => {
                 <TimelineItem
                     from="2021"
                     to="Hoje"
-                    title="Tokenlab - Desenvolvedor web fullstack"
+                    title="Desenvolvedor web fullstack - Tokenlab"
                 >
                     Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
                     NestJS e Serverless Framework e também foi responsável pela infraestrutura cloud de projetos
@@ -204,11 +203,40 @@ const Home: NextPage = () => {
                 </TimelineItem>
             </ul>
         </Section>
-        <Section>
+        <Section className="flex-col">
+            <SectionHeading title="Formação"/>
+            <ul className="mt-8">
+                <TimelineItem
+                    from="2016"
+                    to="2021"
+                    title="Engenharia de Computação - UFMS"
+                >
+                    Graduação em Engenharia de Computação pela Universidade Federal do Mato Grosso do Sul. Participei de
+                    um projeto de extensão, onde desenvolvi o sistema administrativo para o Mercado Escola.
+                </TimelineItem>
+                <TimelineItem
+                    from="2014"
+                    to="2015"
+                    title="Engenharia de Computação - UCDB"
+                >
+                    Graduação em Engenharia de Computação pela Universidade Católica Dom Bosco, interrompida pela
+                    transferência para a UFMS. Durante esse período desenvolvi meu PIBIC, publicando o <a
+                    className="underline font-medium"
+                    href="http://www.gpec.ucdb.br/pistori/orientacoes/planos/hugo2014.pdf">Histogramas de Palavras
+                    Visuais com Atributos de Cor, Forma e Textura para Contagem de Polens</a>
+                </TimelineItem>
+            </ul>
+        </Section>
+        <Section dark>
             <SectionHeading title="Projetos"/>
 
             <ul className="mt-8">
-                <ProjectSummary name="Game Hosting Panel" image={GameHostingPanel1} github="#" hasDetails={true}>
+                <ProjectSummary
+                    name="Game Hosting Panel"
+                    image={GameHostingPanel1}
+                    repository="https://github.com/HugoJF/game-hosting-panel"
+                    hasDetails={false}
+                >
                     <p>
                         Desenvolvido em Laravel, React, Bootstrap, TailwindCSS, e NodeJS, tem objetivo automatizar
                         todo ambiente necessário para clientes poderem hospedar diversos servidores de jogos em

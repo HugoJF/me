@@ -1,12 +1,5 @@
 import React from "react";
-import Image, {StaticImageData} from "next/image";
-
-interface AdaptiveImage {
-    light: StaticImageData;
-    dark: StaticImageData;
-}
-
-type SrcType = AdaptiveImage | StaticImageData;
+import Image from "next/image";
 
 interface Props {
     size?: number;
@@ -15,6 +8,7 @@ interface Props {
 }
 
 const Icon: React.FC<Props> = ({size = 40, src, alt}) => {
+
     if ('light' in src) {
         return <>
             <div className="dark:hidden">
