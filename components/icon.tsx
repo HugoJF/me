@@ -41,7 +41,6 @@ const Icon: React.FC<Props> = ({size = 40, src, alt}) => {
         alt={alt}
         width={src.width * scale}
         height={src.height * scale}
-
         layout="fixed"
         quality={100}
     />

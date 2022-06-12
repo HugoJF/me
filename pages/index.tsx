@@ -26,6 +26,7 @@ import DynamoDB from "../public/dynamodb.svg";
 import Jest from "../public/jest.svg";
 import Serverless from "../public/serverless.svg";
 import GameHostingPanel1 from "../public/game-hosting-panel/1.png";
+import Me from "../public/me.jpg";
 import Link from "next/link";
 import ProjectSummary from "../components/project-summary";
 import Head from "next/head";
@@ -122,12 +123,12 @@ const Home: NextPage = () => {
             </nav>
         </Section>
         <Section dark className="flex flex-col md:flex-row items-center">
-            <div className="flex justify-center w-1/2">
+            <div className="flex justify-center w-1/2 rounded-full overflow-hidden">
                 <Image
                     alt="Hugo Jeller"
                     width={300}
                     height={300}
-                    src="https://avatars.githubusercontent.com/u/1527438?v=4"
+                    src={Me}
                     className="flex-shrink-0 w-64 h-64 bg-white rounded-full shadow-lg"
                 />
             </div>
