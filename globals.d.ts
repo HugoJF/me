@@ -1,10 +1,8 @@
 import {StaticImageData} from "next/image";
 
 declare global {
-    type AdaptiveImage = {
+    type Icon = {
         light: StaticImageData;
         dark: StaticImageData;
-    }
-
-    type SrcType = AdaptiveImage | StaticImageData;
+    };
 }

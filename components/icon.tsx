@@ -1,42 +1,47 @@
 import React from "react";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
+import {IconName, icons} from "../utils/icons";
+import clsx from "clsx";
 
 interface Props {
+    icon: IconName;
     size?: number;
-    src: SrcType;
-    alt: string;
 }
 
-const Icon: React.FC<Props> = ({size = 40, src, alt}) => {
+// TODO: handle alts
+const Icon: React.FC<Props> = ({icon, size = 40}) => {
+    const data = icons[icon] as Icon;
+    const onlyLight = 'dark' in data;
 
-    if ('light' in src) {
-        return <>
-            <div className="dark:hidden">
-                <Icon
-                    key={alt + '-light'}
-                    src={src.light}
-                    alt={alt}
-                />
-            </div>
-            <div className="hidden dark:block">
-                {src.dark && <Icon
-                  key={alt + '-dark'}
-                  src={src.dark}
-                  alt={alt}
-                />}
-            </div>
-        </>
+    function dimensions(data: StaticImageData) {
+        const scale = size / data.height;
+
+        return {
+            width: data.width * scale,
+            height: data.height * scale,
+        }
     }
 
-    const scale = size / src.height;
+    return <>
+        {data.light && <div className={clsx({'dark:hidden': onlyLight})}>
+          <Image
+            src={data.light}
+            alt={icon}
+            layout="fixed"
+            quality={100}
+            {...dimensions(data.light)}
+          />
+        </div>}
 
-    return <Image
-        src={src}
-        alt={alt}
-        width={src.width * scale}
-        height={src.height * scale}
-        layout="fixed"
-        quality={100}
-    />
+        {data.dark && <div className="hidden dark:block">
+          <Image
+            src={data.dark}
+            alt={icon}
+            layout="fixed"
+            quality={100}
+            {...dimensions(data.dark)}
+          />
+        </div>}
+    </>
 }
 export default Icon;
