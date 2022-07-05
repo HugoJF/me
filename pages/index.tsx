@@ -70,10 +70,12 @@ const Home: NextPage = () => {
             <nav className="flex justify-between">
                 <SectionHeading title="Hugo Jeller Ferreira"/>
                 <ul className="flex gap-8">
-                    {/*<li className="font-medium uppercase">Home</li>*/}
-                    {/*<li className="font-medium uppercase">Projetos</li>*/}
-                    {/*<li className="font-medium uppercase">Contato</li>*/}
-                    {/*<li className="font-medium uppercase">GitHub</li>*/}
+                    <li className="font-medium uppercase">
+                        <a href="https://www.linkedin.com/in/hugo-jeller-ferreira/">LinkedIn</a>
+                    </li>
+                    <li className="font-medium uppercase">
+                        <a href="https://github.com/HugoJF">GitHub</a>
+                    </li>
                 </ul>
             </nav>
         </Section>
