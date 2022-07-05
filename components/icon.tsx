@@ -2,9 +2,11 @@ import React from "react";
 import Image, {StaticImageData} from "next/image";
 import {IconName, icons} from "../utils/icons";
 import clsx from "clsx";
+import {Tooltip} from "./tooltip";
 
 interface Props {
     icon: IconName;
+    alt: string;
     size?: number;
 }
 
@@ -22,7 +24,7 @@ const Icon: React.FC<Props> = ({icon, size = 40}) => {
         }
     }
 
-    return <>
+    return <Tooltip description={icon}>
         {data.light && <div className={clsx({'dark:hidden': onlyLight})}>
           <Image
             src={data.light}
@@ -42,6 +44,6 @@ const Icon: React.FC<Props> = ({icon, size = 40}) => {
             {...dimensions(data.dark)}
           />
         </div>}
-    </>
+    </Tooltip>
 }
 export default Icon;

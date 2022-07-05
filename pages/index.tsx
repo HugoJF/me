@@ -108,7 +108,7 @@ const Home: NextPage = () => {
                     <li key={skill.name}>
                         <a className="duration-150 flex flex-col gap-1 h-full p-4 rounded-lg">
                             <ul className="flex gap-2">
-                                {skill.icons.map(icon => <Icon key={icon} icon={icon}/>)}
+                                {skill.icons.map(icon => <Icon key={icon} icon={icon} alt={icon}/>)}
                             </ul>
                             <h2 className="text-lg font-medium">{skill.name}</h2>
                             <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
@@ -126,7 +126,7 @@ const Home: NextPage = () => {
                     className="duration-150 rounded-lg"
                 >
                     <a className="flex flex-col items-center gap-2 p-4">
-                        <Icon icon={other.icon}/>
+                        <Icon icon={other.icon} alt={other.icon}/>
                         <h2 className="text-center text-lg font-medium">{other.name}</h2>
                     </a>
                 </li>)}

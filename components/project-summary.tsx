@@ -30,7 +30,8 @@ const ProjectSummary: FC<Props> = ({name, image, icons = [], repository, hasDeta
         <div className="w-1/2 flex flex-col gap-2 pl-2">
             <ul className="flex gap-4">
                 {icons.map(icon => <li key={icon}>
-                    <Icon icon={icon} size={30}/>
+                    {/* TODO: real alts */}
+                    <Icon icon={icon} size={30} alt={icon}/>
                 </li>)}
             </ul>
             <h2 className="text-2xl font-bold">{name}</h2>
