@@ -139,20 +139,36 @@ const Home: NextPage = () => {
             <SectionHeading title="Experiência profissional"/>
             <ul className="mt-8">
                 <TimelineItem
-                    from="2021"
+                    from="2022"
                     to="Hoje"
-                    title="Desenvolvedor web fullstack - Tokenlab"
+                    title="Engenheiro de Software — CESAR"
+                >
+                    Atuei como desenvolvedor fullstack com as stacks Ember.js com Ruby on Rails e React com Java.
+                </TimelineItem>
+                <TimelineItem
+                    from="2021"
+                    to="2022"
+                    title="Desenvolvedor web fullstack — Tokenlab"
                 >
                     Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
                     NestJS e Serverless Framework e também foi responsável pela infraestrutura cloud de projetos
                     internos.
                 </TimelineItem>
                 <TimelineItem
+                    from="2021"
+                    to="2021"
+                    title="Estagiário web — Tokenlab"
+                >
+                    Atuei exclusivamente como desenvolvedor frontend utilizando Angular, com foco nos estudos e ramp-up dos processos de agilidade e tecnologias (AWS e Nest.js) que eram utilizados na empresa .
+                </TimelineItem>
+                <TimelineItem
                     from="2017"
                     to="2021"
                     title="Desenvolvedor web fullstack"
                 >
-                    Atuei como desenvolvedor frontend utilizando Angular e React, desenvolvedor backend utilizando
+                    Responsável pela gestão de 3 servidores bare-metal utilizados na hospedagem de servidores públicos de Counter-Strike: Global Offensive.
+                    Desenvolvi sistemas de monitoramento de rede, assinatura e pagamento, gestão de configurações e deploy, broker de eventos customizado, estatística de jogadores, automação de denúncias e outros sistemas de suporte.
+                    Atuei utilizando Laravel e React como stack principal, mas também utilizei Node.js, SourcePawn e Python. Também tive responsabilidades de atendimento aos usuários, design, DevOps, e gestão financeira.
                 </TimelineItem>
             </ul>
         </Section>
@@ -161,7 +177,7 @@ const Home: NextPage = () => {
             <ul className="mt-8">
                 <TimelineItem
                     from="2016"
-                    to="2021"
+                    to="Hoje"
                     title="Engenharia de Computação - UFMS"
                 >
                     Graduação em Engenharia de Computação pela Universidade Federal do Mato Grosso do Sul. Participei de
