@@ -23,27 +23,39 @@ interface Skill {
 }
 
 const skills: Skill[] = [{
-    name: 'Laravel & PHP',
+    name: 'PHP', // 7 anos
+    description: 'PHP é uma linguagem de script de código aberto de uso geral, muito utilizada, e especialmente adequada para o desenvolvimento web e que pode ser embutida dentro do HTML.',
+    icons: ['php'],
+}, {
+    name: 'Laravel', // 6 anos
     description: 'Laravel é um framework PHP gratuito e de código aberto, utilizado no desenvolvimento de sistemas para web.',
-    icons: ['laravel', 'php'],
+    icons: ['laravel'],
 }, {
-    name: 'React & Next.js',
+    name: 'React', // 4 anos
     description: 'React é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
-    icons: ['react', 'nextjs'],
+    icons: ['react'],
 }, {
-    name: 'TailwindCSS',
+    name: 'Next.js', // 2 anos
+    description: 'Next.js é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
+    icons: ['nextjs'],
+}, {
+    name: 'TailwindCSS', // 3 anos
     description: 'TailwindCSS é uma biblioteca de CSS que permite a você criar interfaces de usuário de forma declarativa, flexível e escalável.',
     icons: ['tailwindcss'],
 }, {
-    name: 'Nest.js & Typescript',
-    description: 'Next.js é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
-    icons: ['nestjs', 'typescript'],
+    name: 'Typescript', // 4 anos
+    description: 'Typescript é uma linguagem de programação que adiciona tipagem estática e alguns outros recursos a JavaScript.',
+    icons: ['typescript'],
 }, {
-    name: 'Angular',
+    name: 'Nest.js', // 2 anos
+    description: 'Nest.js é um framework Node.js que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
+    icons: ['nestjs'],
+}, {
+    name: 'Angular', // 2 anos
     description: 'Angular é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
     icons: ['angular'],
 }, {
-    name: 'Amazon Web Services',
+    name: 'Amazon Web Services', // 3 anos
     description: 'AWS é uma plataforma de serviços de cloud computing, que oferece acesso a serviços de cloud computing.',
     icons: ['aws'],
 }];
@@ -159,16 +171,22 @@ const Home: NextPage = () => {
                     to="2021"
                     title="Estagiário web — Tokenlab"
                 >
-                    Atuei exclusivamente como desenvolvedor frontend utilizando Angular, com foco nos estudos e ramp-up dos processos de agilidade e tecnologias (AWS e Nest.js) que eram utilizados na empresa .
+                    Atuei exclusivamente como desenvolvedor frontend utilizando Angular, com foco nos estudos e ramp-up
+                    dos processos de agilidade e tecnologias (AWS e Nest.js) que eram utilizados na empresa .
                 </TimelineItem>
                 <TimelineItem
                     from="2017"
                     to="2021"
                     title="Desenvolvedor web fullstack"
                 >
-                    Responsável pela gestão de 3 servidores bare-metal utilizados na hospedagem de servidores públicos de Counter-Strike: Global Offensive.
-                    Desenvolvi sistemas de monitoramento de rede, assinatura e pagamento, gestão de configurações e deploy, broker de eventos customizado, estatística de jogadores, automação de denúncias e outros sistemas de suporte.
-                    Atuei utilizando Laravel e React como stack principal, mas também utilizei Node.js, SourcePawn e Python. Também tive responsabilidades de atendimento aos usuários, design, DevOps, e gestão financeira.
+                    Responsável pela gestão de 3 servidores bare-metal utilizados na hospedagem de servidores públicos
+                    de Counter-Strike: Global Offensive.
+                    Desenvolvi sistemas de monitoramento de rede, assinatura e pagamento, gestão de configurações e
+                    deploy, broker de eventos customizado, estatística de jogadores, automação de denúncias e outros
+                    sistemas de suporte.
+                    Atuei utilizando Laravel e React como stack principal, mas também utilizei Node.js, SourcePawn e
+                    Python. Também tive responsabilidades de atendimento aos usuários, design, DevOps, e gestão
+                    financeira.
                 </TimelineItem>
             </ul>
         </Section>
