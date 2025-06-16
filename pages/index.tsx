@@ -195,7 +195,7 @@ const Home: NextPage = () => {
             <ul className="mt-8">
                 <TimelineItem
                     from="2016"
-                    to="Hoje"
+                    to="2024"
                     title="Engenharia de Computação - UFMS"
                 >
                     Graduação em Engenharia de Computação pela Universidade Federal do Mato Grosso do Sul. Participei de
