@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 52.799999 59.999998"
+   version="1.1"
+   id="svg60"
+   sodipodi:docname="terraform.svg"
+   width="52.799999"
+   height="60"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs64" />
+  <sodipodi:namedview
+     id="namedview62"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="5.292"
+     inkscape:cx="124.90552"
+     inkscape:cy="29.950869"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="1112"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg60" />
+  <path
+     class="rect-dark"
+     fill="#4040b2"
+     d="M 36.4,20.05 V 38.98 L 52.8,29.52 V 10.57 Z"
+     id="path54" />
+  <path
+     class="rect-light"
+     fill="#5c4ee5"
+     d="m 18.2,10.57 16.4,9.48 V 38.98 L 18.2,29.51 Z"
+     id="path56" />
+  <path
+     class="rect-light"
+     fill="#5c4ee5"
+     d="m 0,0 v 18.94 l 16.4,9.47 V 9.47 Z M 18.2,50.53 34.6,60 V 41.06 L 18.2,31.59 Z"
+     id="path58" />
+</svg>
