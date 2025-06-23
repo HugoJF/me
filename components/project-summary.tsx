@@ -4,6 +4,7 @@ import Icon from "./icon";
 import {FC, ReactNode} from "react";
 import React from "../public/react.svg";
 import {IconName} from "../utils/icons";
+import {ProjectDescription} from "./project-description";
 
 interface Props {
     name: string;
@@ -16,7 +17,7 @@ interface Props {
 }
 
 const ProjectSummary: FC<Props> = ({name, image, icons = [], repository, hasDetails, odd = false, children}) => {
-    return <li className={clsx('flex gap-4', {
+    return <li className={clsx('col-span-2 flex gap-4', {
         'flex-row': odd,
         'flex-row-reverse': !odd,
     })}>
@@ -31,24 +32,24 @@ const ProjectSummary: FC<Props> = ({name, image, icons = [], repository, hasDeta
             <ul className="flex gap-4">
                 {icons.map(icon => <li key={icon}>
                     {/* TODO: real alts */}
-                    <Icon icon={icon} size={30} alt={icon}/>
+                    <Icon iconName={icon}/>
                 </li>)}
             </ul>
             <h2 className="text-2xl font-bold">{name}</h2>
             {children}
             {Boolean(repository || hasDetails) && <ul className="flex gap-2">
                 {hasDetails &&
-                  <a
-                    className="duration-150 inline-block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 border dark:border-gray-900 rounded-lg"
-                    href="#"
-                  >
-                    Mais detalhes
-                  </a>}
+                    <a
+                        className="duration-150 inline-block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 border dark:border-gray-900 rounded-lg"
+                        href="#"
+                    >
+                        Mais detalhes
+                    </a>}
                 {repository && <a
-                  className="duration-150 inline-block px-4 py-2 text-sm text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-50 border dark:border-gray-900 rounded-lg"
-                  href={repository}
+                    className="duration-150 inline-block px-4 py-2 text-sm text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-50 border dark:border-gray-900 rounded-lg"
+                    href={repository}
                 >
-                  Repositório
+                    Repositório
                 </a>}
             </ul>}
         </div>

@@ -6,10 +6,12 @@ import Icon from "../components/icon";
 import Image from "next/image";
 import GameHostingPanel1 from "../public/game-hosting-panel/1.png";
 import MercadoEscola1 from "../public/mercado-escola/1.png";
+import CacheSimulator1 from '../public/cache-simulator/1.png';
 import Me from "../public/me.jpg";
 import ProjectSummary from "../components/project-summary";
 import Head from "next/head";
 import {IconName} from "../utils/icons";
+import {ProjectDescription} from "../components/project-description";
 
 interface TechnologyIcon {
     name: string;
@@ -22,18 +24,30 @@ interface Skill {
     icons: IconName[];
 }
 
+interface MainSkill {
+    name: string;
+    icon: IconName;
+    description: string;
+}
+
+const mainSkills: MainSkill[] = [{
+    name: 'Laravel',
+    icon: 'laravel',
+    description: 'Tenho 7 anos de experiência com Laravel, desenvolvendo APIs RESTful e aplicações web completas. Implementei sistemas de autenticação, integração com serviços de terceiros e otimização de consultas SQL. Trabalhei em projetos de e-commerce e sistemas de gestão empresarial.'
+}, {
+    name: 'React',
+    icon: 'react',
+    description: 'Desenvolvo com React há 6 anos, criando interfaces modernas e responsivas. Tenho experiência com hooks, context API, Redux e React Query. Implementei dashboards interativos, sistemas de autenticação e integração com APIs. Também trabalhei com Next.js em projetos que exigiam SSR e otimização SEO.'
+}, {
+    name: 'AWS',
+    icon: 'aws',
+    description: 'Utilizo AWS há 4 anos para deploy e infraestrutura de aplicações. Tenho experiência com EC2, S3, RDS, Lambda e CloudFront. Implementei pipelines de CI/CD com AWS CodePipeline e gerenciei recursos com CloudFormation. Também trabalhei com monitoramento usando CloudWatch e configuração de segurança com IAM.',
+}]
+
 const skills: Skill[] = [{
     name: 'PHP', // 7 anos
     description: 'PHP é uma linguagem de script de código aberto de uso geral, muito utilizada, e especialmente adequada para o desenvolvimento web e que pode ser embutida dentro do HTML.',
     icons: ['php'],
-}, {
-    name: 'Laravel', // 6 anos
-    description: 'Laravel é um framework PHP gratuito e de código aberto, utilizado no desenvolvimento de sistemas para web.',
-    icons: ['laravel'],
-}, {
-    name: 'React', // 4 anos
-    description: 'React é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
-    icons: ['react'],
 }, {
     name: 'Next.js', // 2 anos
     description: 'Next.js é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
@@ -54,10 +68,6 @@ const skills: Skill[] = [{
     name: 'Angular', // 2 anos
     description: 'Angular é uma biblioteca JavaScript que permite criar interfaces de usuário de forma declarativa, flexível e escalável.',
     icons: ['angular'],
-}, {
-    name: 'Amazon Web Services', // 3 anos
-    description: 'AWS é uma plataforma de serviços de cloud computing, que oferece acesso a serviços de cloud computing.',
-    icons: ['aws'],
 }];
 
 const others: TechnologyIcon[] = [
@@ -70,8 +80,20 @@ const others: TechnologyIcon[] = [
     {name: 'MariaDB', icon: 'mariadb'},
     {name: 'Bootstrap', icon: 'bootstrap'},
     {name: 'Jest', icon: 'jest'},
-    {name: 'Insomnia', icon: 'insomnia'}
+    {name: 'Insomnia', icon: 'insomnia'},
+    {name: 'MongoDB', icon: 'mongodb'},
+    {name: 'Python', icon: 'python'},
+    {name: 'Ansible', icon: 'ansible'},
+    {name: 'Terraform', icon: 'terraform'},
+    {name: 'PostgreSQL', icon: 'postgresql'},
+    {name: 'libSQL', icon: 'libsql'},
+    {name: 'Ant Design', icon: 'antd'},
+    {name: 'Redis', icon: 'redis'},
+    {name: 'Vite', icon: 'vite'},
+    {name: 'Cypress', icon: 'cypress'},
+    {name: 'Golang', icon: 'golang'},
 ];
+
 
 const Home: NextPage = () => {
     return <>
@@ -114,6 +136,24 @@ const Home: NextPage = () => {
         </Section>
 
         <Section>
+            <SectionHeading title="Minha stack">
+                Minha atual stack favorita, com a qual tenho mais experiência.
+            </SectionHeading>
+
+            <ul className="mt-8 grid grid-cols-1 xl:grid-cols-3 gap-6">
+                {mainSkills.map((skill) => (
+                    <li key={skill.name}>
+                        <Icon iconName={skill.icon}/>
+                        <h1 className="pb-2 text-xl">
+                            {skill.name}
+                        </h1>
+                        <p>{skill.description}</p>
+                    </li>
+                ))}
+            </ul>
+        </Section>
+
+        <Section dark>
             <SectionHeading title="Tecnologias">
                 Principais tecnologias que utilizo nos meus projetos
             </SectionHeading>
@@ -122,7 +162,7 @@ const Home: NextPage = () => {
                     <li key={skill.name}>
                         <a className="duration-150 flex flex-col gap-1 h-full p-4 rounded-lg">
                             <ul className="flex gap-2">
-                                {skill.icons.map(icon => <Icon key={icon} icon={icon} alt={icon}/>)}
+                                {skill.icons.map(icon => <Icon key={icon} iconName={icon}/>)}
                             </ul>
                             <h2 className="text-lg font-medium">{skill.name}</h2>
                             <p className="dark:text-gray-300 text-gray-700">{skill.description}</p>
@@ -130,18 +170,20 @@ const Home: NextPage = () => {
                     </li>
                 ))}
             </ul>
+        </Section>
 
+        <Section>
             <SectionHeading title="Eu também uso" className="mt-8">
                 Outras ferramentas e tecnologias que considero indispensáveis
             </SectionHeading>
-            <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-2 mt-8">
+            <ul className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-7 gap-2 mt-8">
                 {others.map(other => <li
                     key={other.name}
                     className="duration-150 rounded-lg"
                 >
                     <a className="flex flex-col items-center gap-2 p-4">
-                        <Icon icon={other.icon} alt={other.icon}/>
-                        <h2 className="text-center text-lg font-medium">{other.name}</h2>
+                        <Icon size={50} iconName={other.icon} />
+                        <h2 className="text-center text-lg ">{other.name}</h2>
                     </a>
                 </li>)}
             </ul>
@@ -217,7 +259,7 @@ const Home: NextPage = () => {
         <Section dark>
             <SectionHeading title="Projetos"/>
 
-            <ul className="flex flex-col gap-8 mt-8">
+            <ul className="grid grid-cols-2 gap-8 mt-8">
                 <ProjectSummary
                     name="Game Hosting Panel"
                     image={GameHostingPanel1}
@@ -258,8 +300,51 @@ const Home: NextPage = () => {
                         fornecedores e no final do período de vendas, realizar as entregas.
                     </p>
                 </ProjectSummary>
+                <ProjectSummary
+                    name="Cache Simulator"
+                    image={CacheSimulator1}
+                    icons={['react', "docker", 'github-actions', 'vite']}
+                    repository="https://github.com/HugoJF/cache-simulator"
+                    hasDetails={false}
+                    odd
+                >
+                    <p>Simulador funcional de memórias caches para ser utilizado como ferramenta de apoio ao ensino de Arquitetura de Computadores e disciplinas afins nos cursos de Computação. Desenvolvido em React com objetivo de facilitar utilização por alunos novos, eliminando problemas de incompatibilidade e configuração.</p>
+                    <p>Desenvolvimento juntamente com ferramentas auxiliares baseadas em Valgrind para <i>tracing</i> de aplicações reais para servirem como entrada para o simulador.</p>
+                    <p>Trabalho publicado e aceito na IEEE Frontiers in Education Conference 2025.</p>
+                </ProjectSummary>
+                <ProjectDescription
+                    name="twitch-clip-downloader"
+                    icons={['typescript']}
+                    repository="https://github.com/HugoJF/twitch-clip-downloader"
+                >
+                    Biblioteca Node.JS completa para automação de downloads de <i>clips</i> da Twitch. Desenvolvido para backup em grande escala, incluindo suporte para metadados e dados analíticos disponíveis via API interna.
+                </ProjectDescription>
+                <ProjectDescription
+                    name="AWS Spot Gaming"
+                    icons={['aws']}
+                    repository="https://github.com/HugoJF/aws-spot-gaming"
+                >
+                    Stack em AWS CDK para deploy via CloudFormation de servidores de jogos utilizando EC2 Spot Instances. Baseado em ECS com storage em EFS e backups em S3 utilizando DataSync.
+                </ProjectDescription>
+                <ProjectDescription
+                    name="CHIP-8"
+                    icons={['react', 'typescript']}
+                    repository="https://github.com/HugoJF/chip-8"
+                >
+                    Emulador de CHIP-8 utilizando Javascript e interpretação de instruções via expressões regulares.
+                </ProjectDescription>
+                <ProjectDescription
+                    name="csgo-pipeline"
+                    icons={['redis', 'laravel', 'bootstrap']}
+                    repository="https://github.com/HugoJF/csgo-pipeline"
+                >
+                    Sistema de ingestão de alta performance de eventos de servidores de CS:GO/CS2 utilizando Redis. Implementa diversos filtros e filas para integração com outros sistemas.
+                </ProjectDescription>
             </ul>
         </Section>
+        {/*<Section>*/}
+        {/*    <FinalCta/>*/}
+        {/*</Section>*/}
     </>
 }
 

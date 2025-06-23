@@ -19,27 +19,53 @@ import MariaDB from "../public/mariadb.svg";
 import DynamoDB from "../public/dynamodb.svg";
 import Jest from "../public/jest.svg";
 import Serverless from "../public/serverless.svg";
+import MongoDb from "../public/mongodb.svg";
+import Python from '../public/python.svg';
+import Ansible from '../public/ansible.svg';
+import Terraform from '../public/terraform.svg';
+import Postgresql from '../public/postgresql.svg';
+import Libsql from '../public/libsql.svg';
+import Antd from '../public/antd.svg';
+import Redis from '../public/redis.svg';
+import Vite from '../public/vite.svg';
+import Cypress from '../public/cypress.svg';
+import Golang from '../public/golang.svg';
 
 export const icons = {
-    'insomnia': {light: Insomnia},
-    'github-actions': {light: GitHubActions},
-    'docker': {light: Docker},
-    'react': {light: React},
-    'nextjs': {light: NextJSLight, dark: NextJSDark},
-    'laravel': {light: Laravel},
-    'php': {light: PHP},
-    'nestjs': {light: Nestjs},
-    'typescript': {light: Typescript},
-    'tailwindcss': {light: TailwindCSS},
-    'angular': {light: Angular},
-    'aws': {light: AWSLight, dark: AWSDark},
-    'bootstrap': {light: Bootstrap},
-    'git': {light: Git},
-    'mysql': {light: MySQL},
-    'mariadb': {light: MariaDB},
-    'dynamodb': {light: DynamoDB},
-    'jest': {light: Jest},
-    'serverless': {light: Serverless},
+    'insomnia': {alt: 'Insomnia', light: Insomnia},
+    'github-actions': {alt: 'Github Actions', light: GitHubActions},
+    'docker': {alt: 'Docker', light: Docker},
+    'react': {alt: 'React', light: React},
+    'nextjs': {alt: 'NextJS', light: NextJSLight, dark: NextJSDark},
+    'laravel': {alt: 'Laravel', light: Laravel},
+    'php': {alt: 'PHP', light: PHP},
+    'nestjs': {alt: 'NestJS', light: Nestjs},
+    'typescript': {alt: 'Typescript', light: Typescript},
+    'tailwindcss': {alt: 'TailwindCSS', light: TailwindCSS},
+    'angular': {alt: 'Angular', light: Angular},
+    'aws': {alt: 'AWS', light: AWSLight, dark: AWSDark},
+    'bootstrap': {alt: 'Bootstrap', light: Bootstrap},
+    'git': {alt: 'Git', light: Git},
+    'mysql': {alt: 'MySQL', light: MySQL},
+    'mariadb': {alt: 'MariaDB', light: MariaDB},
+    'dynamodb': {alt: 'DynamoDB', light: DynamoDB},
+    'jest': {alt: 'Jest', light: Jest},
+    'serverless': {alt: 'Serverless', light: Serverless},
+    'mongodb': {alt: 'MongoDB', light: MongoDb},
+    'python': {alt: 'Python', light: Python},
+    'ansible': {alt: 'Ansible', light: Ansible},
+    'terraform': {alt: 'Terraform', light: Terraform},
+    'postgresql': {alt: 'PostgreSQL', light: Postgresql},
+    'libsql': {alt: 'libSQL', light: Libsql},
+    'antd': {alt: 'Ant Design', light: Antd},
+    'redis': {alt: 'Redis', light: Redis},
+    'vite': {alt: 'Vite', light: Vite},
+    'cypress': {alt: 'Cypress', light: Cypress},
+    'golang': {alt: 'Golang', light: Golang},
+}
+
+export const getIconsByKeys = (keys: IconName[]) => {
+    return keys.map(key => icons[key])
 }
 
 export type IconName = keyof typeof icons;

@@ -5,18 +5,18 @@ import clsx from "clsx";
 import {Tooltip} from "./tooltip";
 
 interface Props {
-    icon: IconName;
-    alt: string;
+    iconName: IconName;
     size?: number;
+    dimensionAxis?: 'width' | 'height';
 }
 
 // TODO: handle alts
-const Icon: React.FC<Props> = ({icon, size = 40}) => {
-    const data = icons[icon] as Icon;
+const Icon: React.FC<Props> = ({iconName, size = 40, dimensionAxis = 'height'}) => {
+    const data = icons[iconName] as Icon;
     const onlyLight = 'dark' in data;
 
     function dimensions(data: StaticImageData) {
-        const scale = size / data.height;
+        const scale = size / data[dimensionAxis];
 
         return {
             width: data.width * scale,
@@ -24,11 +24,11 @@ const Icon: React.FC<Props> = ({icon, size = 40}) => {
         }
     }
 
-    return <Tooltip description={icon}>
+    return <Tooltip description={data.alt}>
         {data.light && <div className={clsx({'dark:hidden': onlyLight})}>
           <Image
             src={data.light}
-            alt={icon}
+            alt={data.alt}
             layout="fixed"
             quality={100}
             {...dimensions(data.light)}
@@ -38,7 +38,7 @@ const Icon: React.FC<Props> = ({icon, size = 40}) => {
         {data.dark && <div className="hidden dark:block">
           <Image
             src={data.dark}
-            alt={icon}
+            alt={data.alt}
             layout="fixed"
             quality={100}
             {...dimensions(data.dark)}
