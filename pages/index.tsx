@@ -182,7 +182,7 @@ const Home: NextPage = () => {
                     className="duration-150 rounded-lg"
                 >
                     <a className="flex flex-col items-center gap-2 p-4">
-                        <Icon size={50} iconName={other.icon} />
+                        <Icon size={50} iconName={other.icon}/>
                         <h2 className="text-center text-lg ">{other.name}</h2>
                     </a>
                 </li>)}
@@ -308,8 +308,12 @@ const Home: NextPage = () => {
                     hasDetails={false}
                     odd
                 >
-                    <p>Simulador funcional de memórias caches para ser utilizado como ferramenta de apoio ao ensino de Arquitetura de Computadores e disciplinas afins nos cursos de Computação. Desenvolvido em React com objetivo de facilitar utilização por alunos novos, eliminando problemas de incompatibilidade e configuração.</p>
-                    <p>Desenvolvimento juntamente com ferramentas auxiliares baseadas em Valgrind para <i>tracing</i> de aplicações reais para servirem como entrada para o simulador.</p>
+                    <p>Simulador funcional de memórias caches para ser utilizado como ferramenta de apoio ao ensino de
+                        Arquitetura de Computadores e disciplinas afins nos cursos de Computação. Desenvolvido em React
+                        com objetivo de facilitar utilização por alunos novos, eliminando problemas de incompatibilidade
+                        e configuração.</p>
+                    <p>Desenvolvimento juntamente com ferramentas auxiliares baseadas em Valgrind para <i>tracing</i> de
+                        aplicações reais para servirem como entrada para o simulador.</p>
                     <p>Trabalho publicado e aceito na IEEE Frontiers in Education Conference 2025.</p>
                 </ProjectSummary>
                 <ProjectDescription
@@ -317,14 +321,17 @@ const Home: NextPage = () => {
                     icons={['typescript']}
                     repository="https://github.com/HugoJF/twitch-clip-downloader"
                 >
-                    Biblioteca Node.JS completa para automação de downloads de <i>clips</i> da Twitch. Desenvolvido para backup em grande escala, incluindo suporte para metadados e dados analíticos disponíveis via API interna.
+                    Biblioteca Node.JS completa para automação de downloads de <i>clips</i> da Twitch. Desenvolvido para
+                    backup em grande escala, incluindo suporte para metadados e dados analíticos disponíveis via API
+                    interna.
                 </ProjectDescription>
                 <ProjectDescription
                     name="AWS Spot Gaming"
                     icons={['aws']}
                     repository="https://github.com/HugoJF/aws-spot-gaming"
                 >
-                    Stack em AWS CDK para deploy via CloudFormation de servidores de jogos utilizando EC2 Spot Instances. Baseado em ECS com storage em EFS e backups em S3 utilizando DataSync.
+                    Stack em AWS CDK para deploy via CloudFormation de servidores de jogos utilizando EC2 Spot
+                    Instances. Baseado em ECS com storage em EFS e backups em S3 utilizando DataSync.
                 </ProjectDescription>
                 <ProjectDescription
                     name="CHIP-8"
@@ -338,7 +345,8 @@ const Home: NextPage = () => {
                     icons={['redis', 'laravel', 'bootstrap']}
                     repository="https://github.com/HugoJF/csgo-pipeline"
                 >
-                    Sistema de ingestão de alta performance de eventos de servidores de CS:GO/CS2 utilizando Redis. Implementa diversos filtros e filas para integração com outros sistemas.
+                    Sistema de ingestão de alta performance de eventos de servidores de CS:GO/CS2 utilizando Redis.
+                    Implementa diversos filtros e filas para integração com outros sistemas.
                 </ProjectDescription>
             </ul>
         </Section>
